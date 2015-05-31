@@ -2,6 +2,8 @@ package activityPlanner
 
 import grails.converters.JSON
 import grails.rest.RestfulController
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 import activityPlanner.weather.WeatherForecast
 import activityPlanner.Activity;
 
@@ -11,6 +13,8 @@ import com.google.maps.model.LatLng
 
 class ActivityController extends RestfulController {
 	static responseFormats = ['json']
+	
+	static final DateFormat ISO_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss")
 	
 	def weatherLookup
 	def geocodeContext
@@ -45,8 +49,16 @@ class ActivityController extends RestfulController {
 		Date date = Calendar.getInstance().getTime()
 		
 		if (params.date != null) {
-			//TODO: parse date
-			activities.add(new Activity(id:7755, name:"football (North American)"))
+			//TODO: better incorrect format processing
+			Date dateParam
+			if (params.date.matches(/\d+/)) {
+				dateParam = new Date(Long.parseLong(params.date))
+			}
+			else {
+				dateParam = ISO_FORMAT.parse(params.date)
+			}
+			
+			date = dateParam	
 		}
 		
 		WeatherForecast forecast = weatherLookup.getForecast(latitude, longitude, date)

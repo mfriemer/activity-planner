@@ -35,10 +35,16 @@ class DslActivityRaterSpec extends Specification {
 		summerForecast.highTempF >> 85
 		summerForecast.conditions >> "sunny"
 		
+		WeatherForecast windyForecast = Mock(WeatherForecast)
+		windyForecast.highTempF >> 65
+		windyForecast.windSpeedMph >> 20
+		windyForecast.conditions >> "partly cloudy"
+		
 		expect:
 		rater.getActivitiesForForecast(winterForecast) != null
 		rater.getActivitiesForForecast(summerForecast) != null
 		rater.getActivitiesForForecast(winterForecast).any { it -> it.name == "skiing" }
 		rater.getActivitiesForForecast(summerForecast).any { it -> it.name == "swimming" }
+		rater.getActivitiesForForecast(windyForecast).any { it -> it.name == "flying a kite" }
 	}
 }

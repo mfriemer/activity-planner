@@ -1,7 +1,6 @@
 class UrlMappings {
 
     static mappings = {
-        "/activities"(resources:"activity", method:"GET")
         "/location/$postalCode/activities"(resources:"activity", method:"GET", includes:['index'])
         "/location/$state/$city/activities" {
 		     controller = "activity"
@@ -20,8 +19,7 @@ class UrlMappings {
 				latitude(matches:/-?\d+.?\d*/)
 				longitude(matches:/-?\d+.?\d*/)
 			}
-		}
-				
+		}				
 		"500"(view:'/error')
 	}
 }

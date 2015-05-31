@@ -4,12 +4,7 @@ import com.google.maps.GeoApiContext
 import activityPlanner.rating.DslActivityRater
 
 // Place your Spring DSL code here
-beans = {
-//	weatherLookup(WundergroundLookup) {
-//		url = "http://api.wunderground.com/api"
-//		key = "d57366b8724777f8"
-//	}
-	
+beans = {	
 	weatherLookup(ForecastIoLookup) {
 		url = "https://api.forecast.io/forecast"
 		key = "bac6f80455dabd1c57e0f077fa758490"

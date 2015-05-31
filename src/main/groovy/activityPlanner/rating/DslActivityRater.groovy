@@ -16,7 +16,6 @@ class DslActivityRater implements ActivityRater {
 	
 	DslActivityRater(String ratingsDefPath) {
 		this.ratingsDefPath = ratingsDefPath
-		//activities = parseRatings(new File(ratingsDefPath))
 		this.activities = parseRatings(new File(getClass().getClassLoader().getResource(ratingsDefPath).getFile()))
 	}
 
@@ -34,6 +33,10 @@ class DslActivityRater implements ActivityRater {
 		}
 		
 		return activitiesForDay
+	}
+	
+	static List<ActivityRating> parseRatings(String dslFilePath) {
+		return parseRatings(new File(DslActivityRater.class.getClassLoader().getResource(dslFilePath).getFile()))
 	}
 	
 	static List<ActivityRating> parseRatings(File dslFile) {
