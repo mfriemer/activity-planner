@@ -1,6 +1,16 @@
 server:
     'context-path': '/activity-planner'
 
+weatherLookup:
+    url: 'https://api.forecast.io/forecast'
+    key: 'bac6f80455dabd1c57e0f077fa758490'
+
+geocode:
+    key: 'AIzaSyApIN3MGCAkKbLTRhCS-cfxruV9cZiJUjE'
+
+ratings:
+    defPath: 'activityRatings.groovy'
+
 ---
 grails:
     profile: web

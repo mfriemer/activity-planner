@@ -6,15 +6,15 @@ import activityPlanner.rating.DslActivityRater
 // Place your Spring DSL code here
 beans = {	
 	weatherLookup(ForecastIoLookup) {
-		url = "https://api.forecast.io/forecast"
-		key = "bac6f80455dabd1c57e0f077fa758490"
+		url = '${weatherLookup.url}'
+		key = '${weatherLookup.key}'
 	}
 	
 	geocodeContext(GeoApiContext) {
-		apiKey = "AIzaSyApIN3MGCAkKbLTRhCS-cfxruV9cZiJUjE"
+		apiKey = '${geocode.key}'
 	}
 	
 	activityRater(DslActivityRater) {
-		ratingsDefPath = "activityRatings.groovy"
+		ratingsDefPath = '${ratings.defPath}'
 	}
 }
