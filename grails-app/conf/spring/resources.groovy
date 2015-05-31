@@ -1,7 +1,7 @@
 import activityPlanner.weather.WeatherLookup
 import activityPlanner.weather.forecastIo.ForecastIoLookup
 import com.google.maps.GeoApiContext
-import activityPlanner.rating.SimpleActivityRater
+import activityPlanner.rating.DslActivityRater
 
 // Place your Spring DSL code here
 beans = {
@@ -19,7 +19,7 @@ beans = {
 		apiKey = "AIzaSyApIN3MGCAkKbLTRhCS-cfxruV9cZiJUjE"
 	}
 	
-	activityRater(SimpleActivityRater) {
-		
+	activityRater(DslActivityRater) {
+		ratingsDefPath = "activityRatings.groovy"
 	}
 }
