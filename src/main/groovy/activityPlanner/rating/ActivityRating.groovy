@@ -35,7 +35,7 @@ class ActivityRating {
 		boolean isGood = true
 		isGood = (tempRange == null || tempRange.containsWithinBounds(forecast.highTempF))
 		isGood = isGood && (windSpeedRange == null || windSpeedRange.containsWithinBounds(forecast.windSpeedMph))
-		isGood = isGood && (excludeConditions.isEmpty() || !excludeConditions.any { it -> forecast.conditions.contains(it) })
+		isGood = isGood && (excludeConditions.isEmpty() || !excludeConditions.any { it -> forecast.conditions.toLowerCase().contains(it.toLowerCase()) })
 		
 		return isGood			
 	}

@@ -10,34 +10,6 @@ class DslActivityRater implements ActivityRater {
 	String ratingsDefPath
 	List<ActivityRating> activities = []
 	
-//	List<ActivityRating> activities = [
-//		ActivityRating.make {
-//			activity "skiing"
-//			tempRange 0, 32
-//		},
-//		ActivityRating.make {
-//			activity "jogging"
-//			tempRange 32, 65
-//		},
-//		ActivityRating.make {
-//			activity "swimming"
-//			tempRange 75, 95
-//			excludeConditions "rain", "snow"
-//		},
-//		ActivityRating.make {
-//			activity "golf"
-//			tempRange 50, 75
-//			windSpeedRange 0, 15
-//			excludeConditions "rain", "snow"
-//		},
-//		ActivityRating.make {
-//			activity "flying a kite"
-//			tempRange 50, 75
-//			windSpeedRange 15, 35
-//			excludeConditions "rain", "snow"
-//		}
-//	]
-	
 	DslActivityRater() {
 		
 	}
