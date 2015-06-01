@@ -6,7 +6,6 @@ class WeatherForecast {
 	int lowTempF
 	String windDirection
 	int windSpeedMph
-	//TODO: enum?
 	String conditions
 	float precipPotential
 	String precipType

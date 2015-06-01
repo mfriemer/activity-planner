@@ -14,7 +14,9 @@ class ForecastIoForecast {
 		forecast.date = data.time
 		forecast.highTempF = data.temperatureMax
 		forecast.lowTempF = data.temperatureMin
-		//TODO wind, precip, etc		
+		forecast.windSpeedMph = data.windSpeed
+		forecast.precipPotential = data.precipProbability
+		forecast.precipType = data.precipType
 		
 		return forecast
 	}
