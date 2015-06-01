@@ -1,9 +1,9 @@
 class UrlMappings {
 
     static mappings = {
-        "/location/$postalCode/activities"(resources:"activity", method:"GET", includes:['index'])
-        "/location/$state/$city/activities" {
-		     controller = "activity"
+        "/location/$postalCode/activityPlans"(controller:"activityPlan", method:"GET", includes:['index'])
+        "/location/$state/$city/activityPlans" {
+		     controller = "activityPlan"
 			 method = "GET"
 		     action = "index"
 		     constraints {
@@ -11,15 +11,15 @@ class UrlMappings {
 				  city(matches:/[A-Za-z]+.*/)
 		     }
 		}
-		"/location/$latitude/$longitude/activities" {
-			controller = "activity"
+		"/location/$latitude/$longitude/activityPlans" {
+			controller = "activityPlan"
 			method = "GET"
 		    action = "index"
 			constraints {
 				latitude(matches:/-?\d+.?\d*/)
 				longitude(matches:/-?\d+.?\d*/)
 			}
-		}				
+		}
 		"500"(view:'/error')
 	}
 }
